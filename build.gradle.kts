@@ -15,9 +15,13 @@ repositories {
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-gradle-intellij-plugin.html
 intellij {
     version.set("2021.3")
-    type.set("IC") // Target IDE Platform
+    type.set("CL") // Target IDE Platform
 
     plugins.set(listOf(/* Plugin Dependencies */))
+}
+
+dependencies {
+    implementation("org.jsoup:jsoup:1.15.3")
 }
 
 tasks {

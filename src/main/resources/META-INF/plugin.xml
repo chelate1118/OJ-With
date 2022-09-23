@@ -1,30 +1,29 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+
 <idea-plugin>
-    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
     <id>com.plugin.oj</id>
 
-    <!-- Public plugin name should be written in Title Case.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
     <name>Oj</name>
 
-    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
-    <vendor email="support@yourcompany.com" url="https://www.yourcompany.com">YourCompany</vendor>
+    <vendor email="gs21077@gs.hs.kr" url="https://www.github.com/chelate1118">Ryan Lee</vendor>
 
-    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
-         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
-         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
-    <description><![CDATA[
-    Enter short description for your plugin here.<br>
-    <em>most HTML tags may be used</em>
-  ]]></description>
+    <description>OJ With is a plugin for CLion for problem-solving and supports online judges such as BOJ, Codeforces, and AtCoder.</description>
 
-    <!-- Product and plugin compatibility requirements.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
     <depends>com.intellij.modules.platform</depends>
 
-    <!-- Extension points defined by the plugin.
-         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
     <extensions defaultExtensionNs="com.intellij">
-
+        <toolWindow factoryClass="com.plugin.oj.browser.ProblemWindowFactory"
+                    id="Problem Window"
+                    secondary="false"
+                    icon="AllIcons.Actions.Preview"
+                    anchor="right"/>
     </extensions>
+    <actions>
+        <action id="com.plugin.oj.SubmitCodeAction"
+                class="com.plugin.oj.SubmitCodeAction"
+                text="Submit Code"
+                description="Submit your code to online judge"
+                icon="AllIcons.Actions.Commit">
+            <add-to-group group-id="NavBarToolBarOthers"/>
+        </action>
+    </actions>
 </idea-plugin>
